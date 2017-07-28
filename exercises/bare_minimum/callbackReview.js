@@ -12,8 +12,8 @@ var pluckFirstLineFromFile = function (filePath, callback) {
     if (err) {
       return callback(err);
     }
-      //isolate first line
-    var linesArr = data.split('\n');
+    //isolate first line
+    var linesArr = data.split('\r');
     //return callback(first line)
     return callback(err, linesArr[0]);
   });
@@ -24,7 +24,7 @@ var getStatusCode = function (url, callback) {
   var options = {
     url: url,
   };
-  request.get(options, function(err, res, body) {
+  request.get(options, function(err, res) {
     if (err) {
       return callback(err);
     }
